@@ -15,7 +15,11 @@ def get_db():
 # CREATE
 @router.post("/", response_model=schemas.TaskResponse)
 def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
-    new_task = models.Task(**task.dict())
+    new_task = models.Task(
+    title=task.title,
+    description=task.description,
+    completed=task.completed
+    )
     db.add(new_task)
     db.commit()
     db.refresh(new_task)
