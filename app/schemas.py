@@ -7,10 +7,10 @@ class TaskBase(BaseModel):
     description: Optional[str] = None
 
 class TaskCreate(TaskBase):
-    pass
+    completed: bool = False
 
 class TaskUpdate(TaskBase):
-    completed: bool
+    pass
 
 class TaskResponse(TaskBase):
     id: int
