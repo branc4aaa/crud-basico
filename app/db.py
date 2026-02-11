@@ -10,7 +10,7 @@ DATABASE_URL = (
     f"postgresql://{os.getenv('DB_USER')}:"
     f"{os.getenv('DB_PASSWORD')}@"
     f"{os.getenv('DB_HOST')}:"
-    f"{int(os.getenv('DB_PORT'))}/"
+    f"{os.getenv('DB_PORT')}/"
     f"{os.getenv('DB_NAME')}"
 )
 
