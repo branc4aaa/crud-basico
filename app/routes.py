@@ -45,7 +45,9 @@ def update_task(task_id: int, task_data: schemas.TaskUpdate, db: Session = Depen
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
 
-    for key, value in task_data.dict().items():
+    updates = task_data.dict(exclude_unset=True)  
+
+    for key, value in updates.items():
         setattr(task, key, value)
 
     db.commit()
